@@ -10,13 +10,13 @@ module.exports = function(){
     if(token === ""){
         if(process.env.FOUNDRY_TOKEN){
             token = process.env.FOUNDRY_TOKEN;
-            if(!token.startsWith("Bearer ")){
-                token = "Bearer " + token;
-            }
         }
         else{
             throw new ReferenceError("Foundry Token not detected. Please either supply as input to the action or set the FOUNDRY_TOKEN environment variable.")
         }
+    }
+    if(!token.startsWith("Bearer ")){
+        token = "Bearer " + token;
     }
     if(hostname === ""){
         if(process.env.PALANTIR_HOSTNAME){
