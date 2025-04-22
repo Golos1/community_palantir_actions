@@ -3,6 +3,7 @@ jobs:
   test_create_dataset:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
       - uses: ./src/datasets/create_dataset
         with:
           datasetName: "CICD_Test"
