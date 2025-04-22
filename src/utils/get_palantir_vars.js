@@ -1,4 +1,4 @@
-const core = require('@actions/core');
+import core from "@actions/core"
 /**
  * Utility function that actions can use to get the strings for palantir instance hostname and foundry api token.
  *Throws a Reference Error if one of these credentials is neither supplied as an input nor an environment variable.
