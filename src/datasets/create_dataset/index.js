@@ -14,7 +14,7 @@ async function createDataset() {
             datasetName: core.getInput('datasetName'),
         })
     }
-    let response = await fetch(hostname + "v2/datasets", config);
+    let response = await fetch(hostname + "/api/v2/datasets", config);
     switch (response.status) {
         case 200:
             let data = await response.json();
