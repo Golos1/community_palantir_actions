@@ -1,0 +1,11 @@
+on: push
+jobs:
+  test_create_dataset:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ./src/datasets/create_dataset/action.yaml
+        with:
+          datasetName: "CICD_Test"
+          foundry_token: ${{secrets.FOUNDRY_TOKEN}}
+          palantir_hostname: ${{secrets.PALANTIR_HOSTNAME}}
+          parentFolderRid: ${{secrets.FOLDER_RID}}
