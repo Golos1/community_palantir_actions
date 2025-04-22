@@ -29,7 +29,7 @@ module.exports = function(){
     }
     if(!hostname.startsWith("https://")){
         hostname = "https://" + hostname
-        console.log("hostname now starts with https://");
+        console.log("Hostname now starts with https://");
     }
     return {'token': token, 'hostname': hostname};
 }
