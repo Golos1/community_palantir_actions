@@ -1,5 +1,5 @@
 const core = require('@actions/core');
-import {get_palantir_vars} from "../../utils/get_palantir_vars.js";
+const {get_palantir_vars} = require("../../utils/get_palantir_vars.js");
 let {token,url} = get_palantir_vars();
 const config = {
     headers: {
