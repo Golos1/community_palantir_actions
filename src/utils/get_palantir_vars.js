@@ -4,7 +4,7 @@ const core = require('@actions/core');
  *Throws a Reference Error if one of these credentials is neither supplied as an input nor an environment variable.
  *  @returns {{token: string, hostname: string}}
  */
-export const get_palantir_vars = function(){
+module.exports = function(){
     let token = core.getInput('foundry_token');
     let hostname = core.getInput('palantir_hostname');
     if(token === ""){

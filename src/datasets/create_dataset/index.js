@@ -1,5 +1,5 @@
 const core = require('@actions/core');
-const {get_palantir_vars} = require("../../utils/get_palantir_vars.js");
+const get_palantir_vars = require("../../utils/get_palantir_vars.js");
 async function createDataset() {
     let {token, url} = get_palantir_vars();
     const config = {
