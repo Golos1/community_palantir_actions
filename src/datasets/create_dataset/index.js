@@ -1,7 +1,7 @@
 const core = require('@actions/core');
 const get_palantir_vars = require("../../utils/get_palantir_vars.js");
 async function createDataset() {
-    let {token, url} = get_palantir_vars();
+    let {token, hostname} = get_palantir_vars();
     const config = {
         headers: {
             "Authorization": token,
@@ -14,7 +14,7 @@ async function createDataset() {
             datasetName: core.getInput('datasetName'),
         })
     }
-    let response = await fetch(url + "v2/datasets", config);
+    let response = await fetch(hostname + "v2/datasets", config);
     switch (response.status) {
         case 200:
             let data = await response.json();
