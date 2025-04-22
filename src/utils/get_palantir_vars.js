@@ -17,6 +17,7 @@ module.exports = function(){
     }
     if(!token.startsWith("Bearer ")){
         token = "Bearer " + token;
+        console.log("Token now starts with Bearer");
     }
     if(hostname === ""){
         if(process.env.PALANTIR_HOSTNAME){
@@ -28,6 +29,7 @@ module.exports = function(){
     }
     if(!hostname.startsWith("https://")){
         hostname = "https://" + hostname
+        console.log("hostname now starts with https://");
     }
     return {'token': token, 'hostname': hostname};
 }

@@ -10,8 +10,7 @@ async function createDataset() {
         method: 'POST',
         body: JSON.stringify({
             parentFolderRid: core.getInput('parentFolderRid'),
-            name: core.getInput('name'),
-            datasetName: core.getInput('datasetName'),
+            name: core.getInput('datasetName'),
         })
     }
     let response = await fetch(hostname + "/api/v2/datasets", config);
