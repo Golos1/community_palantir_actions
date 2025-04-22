@@ -2,8 +2,10 @@ on: push
 jobs:
   test_create_dataset:
     runs-on: ubuntu-latest
+    container: node:lts-bookworm
     steps:
       - uses: actions/checkout@v4
+      - run: npm install
       - uses: ./src/datasets/create_dataset
         with:
           datasetName: "CICD_Test"
