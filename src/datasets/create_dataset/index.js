@@ -23,7 +23,6 @@ async function createDataset() {
             break;
         case 404:
             core.setFailed('404: Palantir host not found.');
-            console.log(response);
             break;
         case 403:
             core.setFailed('403: Permission denied.');
