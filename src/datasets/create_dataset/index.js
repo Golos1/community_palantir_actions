@@ -23,8 +23,8 @@ async function createDataset() {
             core.setOutput('parentFolderRid', data.parentFolderRid);
             break;
         case 404:
-            let error = await response.json();
-            core.setFailed(error.message);
+            core.setFailed('404: Palantir host not found.');
+            console.log(response);
             break;
         case 403:
             core.setFailed('403: Permission denied.');
