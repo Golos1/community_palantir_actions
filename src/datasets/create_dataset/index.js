@@ -27,6 +27,11 @@ async function createDataset() {
         case 403:
             core.setFailed('403: Permission denied.');
             break;
+        case 409:
+            console.log("Dataset already created.");
+            core.setOutput('datasetName', core.getInput('datasetName'));
+            core.setOutput('parentFolderRid', core.getInput('parentFolderRid'));
+            break;
         default:
             core.setFailed(`Unknown error, http code: ${response.status}`);
     }
