@@ -1,0 +1,26 @@
+name: create_branch
+description: creates a branch on a Palantir Foundry Dataset. Will succeed if it already exists.
+inputs:
+  datasetRid:
+    required: true
+    description: "The Resource Identifier of the dataset on which to create the branch."
+  branchName:
+    required: true
+    description: "The name of the branch."
+  transactionRid:
+    required: false
+    description: "The Resource Identifier of a commited transaction to point to."
+  foundry_token:
+    description: "Palantir Foundry API token, will be fetched from the FOUNDRY_TOKEN environment variable if not provided."
+    required: false
+  palantir_hostname:
+    description: "The hostname of the palantir instance you want to send the request to, will be fetched from the PALANTIR_HOSTNAME environment variable if not present. https:// will be added at the beginning if not present."
+    required: false
+outputs:
+  branchName:
+    description: "The name of the newly created branch. Will be set to corresponding input if the branch already existed."
+  transactionRid:
+    description: "The Resource Identifier of a commited transaction the branch points to. Will be set to corresponding input if the branch already existed."
+runs:
+  using: node20
+  main: index.js

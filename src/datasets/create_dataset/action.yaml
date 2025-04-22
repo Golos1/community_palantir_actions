@@ -1,5 +1,5 @@
 name: create_dataset
-description: Creates a dataset on Palantir.
+description: Creates a dataset on Palantir Foundry. Will succeed if the dataset already exists.
 inputs:
   datasetName:
     description: "Name of the newly created dataset."
@@ -15,11 +15,11 @@ inputs:
     required: false
 outputs:
   datasetRid:
-    description: "The RID of the new dataset."
+    description: "The RID of the new dataset. Will not be returned if the dataset already existed."
   datasetName:
-    description: "The name of the new dataset."
+    description: "The name of the new dataset. Will be set to the corresponding input if the dataset already existed."
   parentFolderRid:
-    description: "The RID of the folder where the dataset was created."
+    description: "The RID of the folder where the dataset was created. Will be set to the corresponding input if the dataset already existed."
 
 runs:
   using: node20
