@@ -1,0 +1,27 @@
+name: create_dataset
+description: Creates a dataset on Palantir.
+inputs:
+  datasetName:
+    description: "Name of the newly created dataset."
+    required: true
+  parentFolderRid:
+    description: "Unique Resource Identifier (RID) for a folder in palantir where the dataset will be created."
+    required: true
+  foundry_token:
+    description: "Palantir Foundry API token, will be fetched from the FOUNDRY_TOKEN environment variable if not provided."
+    required: false
+  palantir_hostname:
+    description: "The hostname of the palantir instance you want to send the request to, will be fetched from the PALANTIR_HOSTNAME environment variable if not present. https:// will be added at the beginning if not present."
+    required: false
+outputs:
+  datasetRid:
+    description: "The RID of the new dataset."
+  datasetName:
+    description: "The name of the new dataset."
+  parentFolderRid:
+    description: "The RID of the folder where the dataset was created."
+
+runs:
+  using: node20
+  main: index.js
+
