@@ -31,6 +31,9 @@ jobs:
   test_create_branch:
     runs-on: ubuntu-latest
     container: node:lts-bookworm
+    env:
+      FOUNDRY_TOKEN: ${{secrets.FOUNDRY_TOKEN}}
+      PALANTIR_HOSTNAME: ${{secrets.PALANTIR_HOSTNAME}}
     steps:
       - uses: actions/checkout@v4
       - run: npm install
