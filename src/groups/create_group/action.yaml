@@ -1,0 +1,26 @@
+name: create_group
+description: creates a Group within palantir foundry.
+  Fails if the group already exists.
+inputs:
+  group_name:
+    description: "Name of the new group."
+    required: true
+  group_description:
+    description: "Description of the new group."
+    required: false
+    default: " "
+  org_list:
+    description: "Space separated list of organization RIDs. Must have at least one."
+    required: true
+  foundry_token:
+    description: "Palantir Foundry API token, will be fetched from the FOUNDRY_TOKEN environment variable if not provided."
+    required: false
+  palantir_hostname:
+    description: "The hostname of the palantir instance you want to send the request to, will be fetched from the PALANTIR_HOSTNAME environment variable if not present. https:// will be added at the beginning if not present."
+    required: false
+outputs:
+  group_rid:
+    description: "RID of the newly created group."
+runs:
+  using: node20
+  main: index.js

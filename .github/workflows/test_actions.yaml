@@ -1,0 +1,40 @@
+name: test_actions
+on: push
+jobs:
+  test_create_dataset:
+    runs-on: ubuntu-latest
+    container: node:lts-bookworm
+    env:
+      FOUNDRY_TOKEN: ${{secrets.FOUNDRY_TOKEN}}
+      PALANTIR_HOSTNAME: ${{secrets.PALANTIR_HOSTNAME}}
+    steps:
+      - uses: actions/checkout@v4
+      - run: npm install
+      - uses: ./src/datasets/create_dataset
+        with:
+          datasetName: "CICD_Test"
+          parentFolderRid: ${{secrets.FOLDER_RID}}
+  test_create_group:
+    runs-on: ubuntu-latest
+    container: node:lts-bookworm
+    env:
+      FOUNDRY_TOKEN: ${{secrets.FOUNDRY_TOKEN}}
+      PALANTIR_HOSTNAME: ${{secrets.PALANTIR_HOSTNAME}}
+    steps:
+      - uses: actions/checkout@v4
+      - run: npm install
+      - uses: ./src/groups/create_group
+        with:
+          group_description: 'Example Group'
+          group_name: TestGroup:${{github.run_number}}
+          org_list: ${{secrets.ORG_RID}}
+  test_create_branch:
+    runs-on: ubuntu-latest
+    container: node:lts-bookworm
+    steps:
+      - uses: actions/checkout@v4
+      - run: npm install
+      - uses: ./src/datasets/create_branch
+        with:
+          branchName: TestBranch
+          datasetRid: ${{secrets.DATASET_RID}}
